@@ -1,0 +1,17 @@
+{
+    "properties": {
+      "id": {"type": "keyword"},
+      "title": {
+        "type": "text",
+        "copy_to": "title_sentinel"
+      },
+      "description": {"type": "text"},
+
+      "title_sentinel": {
+        "type": "text",
+        "analyzer" : "text_sentinel_index",
+        "search_analyzer" : "text_sentinel_query"
+      }
+
+    }
+}

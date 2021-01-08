@@ -1,0 +1,36 @@
+{
+  "analysis": {
+    "filter": {
+      "remove_whitespace": {
+        "type": "pattern_replace",
+        "pattern": "\\s+",
+        "replacement": ""
+      },
+      "add_sentinel": {
+        "type": "pattern_replace",
+        "pattern": "(.+)",
+        "replacement": "###_$1_###"
+      }
+    },
+    "analyzer": {
+      "text_sentinel_index": {
+        "type": "custom",
+        "tokenizer": "keyword",
+        "filter": [
+          "lowercase",
+          "remove_whitespace",
+          "add_sentinel"
+        ]
+      },
+      "text_sentinel_query": {
+        "type": "custom",
+        "tokenizer": "keyword",
+        "filter": [
+          "lowercase"
+        ]
+      }
+    }
+
+  }
+}
+
